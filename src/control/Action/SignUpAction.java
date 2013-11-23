@@ -1,11 +1,7 @@
 package control.Action;
 
 import DAO.UserDAO;
-import DAO.UserDao;
-import DAO.Users;
 import model.User;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

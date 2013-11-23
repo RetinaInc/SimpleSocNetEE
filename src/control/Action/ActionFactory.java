@@ -17,13 +17,8 @@ public class ActionFactory {
     static{
         actions = new HashMap<String, Action>();
         actions.put("/signup", new SignUpAction());
-//        actions.put("/signin", new SignInAction());
-//        actions.put("/signout", new SignOutAction());
-//        actions.put("/search", new SearchAction());
-//        actions.put("/smsettings", new SmSettingsAction());
-//        actions.put("/adsettings", new SmSettingsAction());
-//        actions.put("/confirmation", new ConfirmationAction());
-//        actions.put("/smgetallusers", new SmGetAllUsersAction());
+        actions.put("/showalluser", new GetAllUsers());
+
     }
 
     public static Action getAction(HttpServletRequest request) {
