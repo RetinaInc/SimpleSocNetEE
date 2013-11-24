@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServletResponse;
  * To change this template use File | Settings | File Templates.
  */
 public class SignUpAction implements Action {
-    UserDao users;
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
