@@ -19,7 +19,6 @@ import java.util.List;
  */
 public class UserDAO extends AbstractDBConn implements UserDAOInterface {
 
-
     @Override
     public boolean insert(final User user) throws MyException {
         //Tested valid sql
@@ -28,14 +27,13 @@ public class UserDAO extends AbstractDBConn implements UserDAOInterface {
             @Override
             public Boolean doMethod(Connection dataBase) throws SQLException, MyException {
                 PreparedStatement prep = dataBase.prepareStatement(
-                        "INSERT INTO USERS (lastname,firstname,email,password) values (?,?,?,?)"
+                        "INSERT INTO USERS (login,email,password) values (?,?,?)"
                 );
                 //NamedParameterStatement p = new NamedParameterStatement(con, query);
                 // prep.setInt(1,11);
-                prep.setString(1, user.getLastname());
-                prep.setString(2, user.getFirstname());
-                prep.setString(3, user.getEmail());
-                prep.setString(4, user.getPassword());
+                prep.setString(1,user.getUsername());
+                prep.setString(2, user.getEmail());
+                prep.setString(3, user.getPassword());
                 //String str = prep.;
 
                 prep.executeUpdate();
@@ -75,13 +73,10 @@ public class UserDAO extends AbstractDBConn implements UserDAOInterface {
 
     }*/
 
-    @Override
-    public boolean update(User user) {
-        return false;  //To change body of implemented methods use File | Settings | File Templates.
-    }
+
 
     @Override
-    public boolean delete(User user) throws ClassNotFoundException, SQLException {
+    public boolean delete(User user) throws MyException {
         return false;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -101,12 +96,11 @@ public class UserDAO extends AbstractDBConn implements UserDAOInterface {
                 while (results.next()) {
 
                     Integer id = results.getInt(1);
-                    String lastname = results.getString(2);
-                    String firstname = results.getString(3);
-                    String email = results.getString(4);
-                    String password = results.getString(5);
+                    String username = results.getString(2);
+                    String email = results.getString(3);
+                    String password = results.getString(4);
 
-                    User user = new User(id,lastname,firstname,email,password);
+                    User user = new User(id,username,email,password);
 
                     uList.add(user);
                 }
@@ -114,4 +108,62 @@ public class UserDAO extends AbstractDBConn implements UserDAOInterface {
             }
         });
     }
+
+    public boolean getUser(final String email, final String password) throws MyException {
+        return booleanOperation(new WrapperDBOperation<Boolean>() {
+
+            @Override
+            public Boolean doMethod(Connection dataBase) throws MyException, SQLException {
+                PreparedStatement prep = dataBase.prepareStatement(
+                        "SELECT COUNT(*) FROM USERS WHERE email=? AND password=?"
+                );
+                prep.setString(1, email);
+                prep.setString(2, password);
+
+                java.sql.ResultSet res = prep.executeQuery();
+                res.next();
+                int exist = res.getInt(1);
+                boolean answer = false;
+                if (exist != 0) {
+                    answer = true;
+                }
+
+                return answer;
+
+            }
+        });
+
+    }
+
+    public User getUserObj(final String email, final String password) throws MyException {
+        return booleanOperation(new WrapperDBOperation<User>() {
+
+            @Override
+            public User doMethod(Connection dataBase) throws MyException, SQLException {
+                PreparedStatement prep = dataBase.prepareStatement(
+                        "SELECT id_user,username,email,password FROM USERS WHERE email=? AND password=?"
+                );
+                prep.setString(1, email);
+                prep.setString(2, password);
+
+                java.sql.ResultSet res = prep.executeQuery();
+                res.next();
+                int id = res.getInt(1);
+                boolean answer = false;
+                if (id > 0) {
+                    //answer = true;
+                    String uname = res.getString(2);
+                    String email = res.getString(3);
+                    String pswd = res.getString(4);
+                    User user = new User(id, uname, email, pswd);
+                    return user;
+                }
+
+                return null;
+
+            }
+        });
+
+    }
+
 }

@@ -9,8 +9,7 @@ package SocNET.model;
  */
 public class User {
     private int id_user;
-    private String lastname;
-    private String firstname;
+    private String username;
     private String email;
     private String password;
 
@@ -18,17 +17,15 @@ public class User {
 
     }
 
-    public User(String lastname, String firstname, String email, String password){
-        this.lastname = lastname;
-        this.firstname = firstname;
+    public User(String username, String email, String password){
+        this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public User(int id_user,String lastname, String firstname, String email, String password){
+    public User(int id_user,String username, String email, String password){
         this.id_user = id_user;
-        this.lastname = lastname;
-        this.firstname = firstname;
+        this.username = username;
         this.email = email;
         this.password = password;
     }
@@ -41,20 +38,12 @@ public class User {
         this.id_user = id_user;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

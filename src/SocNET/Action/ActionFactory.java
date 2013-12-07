@@ -18,6 +18,7 @@ public class ActionFactory {
         actions = new HashMap<String, Action>();
         actions.put("/signup", new SignUpAction());
         actions.put("/showalluser", new GetAllUsers());
+        actions.put("/signin", new LoginUserAction());
 
     }
 

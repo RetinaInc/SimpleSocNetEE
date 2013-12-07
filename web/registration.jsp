@@ -78,10 +78,9 @@
         <div class="window" >
             <h1>Registration</h1>
             <form name="regfrm" method="POST" action="signup" onsubmit="return validateRegForm();">
-                <p>First Name:<input type="text" name="firstname" maxlength="20"/></p>
+                <p>Login:<input type="text" name="username" maxlength="20"/></p>
                 <span id="span_firstname">First Name must contain only latin letters (4 to 20 symbols)!</span>
-                <p>Last Name:<input type="text" name="lastname" maxlength="20"/></p>
-                <span id="span_lastname">Last Name must contain only latin letters (4 to 20 symbols)!</span>
+
                 <p>Email:<input type="text" name="email" maxlength="50"/></p>
                 <span id="span_email">Invalid email!</span>
 

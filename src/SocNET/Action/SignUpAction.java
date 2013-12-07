@@ -23,15 +23,10 @@ public class SignUpAction implements Action {
         User user;
         try {
             //String lastname, String firstname, String email, String password
-            user = new User(request.getParameter("lastname"),request.getParameter("firstname"),
+            user = new User(request.getParameter("login"),
                             request.getParameter("email"),request.getParameter("password"));
             bool = uDAO.insert(user);
-           // Users user_stored = users.getUserObj(user.getEmail(),user.getPswd());
-          //  ConfirmationEmailDAO ConEmail =(ConfirmationEmailDAO) ctx.getBean("conemailDAO");
 
-            //get hash
-
-            //send mail
 
         } catch (Exception ex) {
             request.setAttribute("error_message",ex.getMessage());
