@@ -1,8 +1,8 @@
-package control.Action;
+package SocNET.Action;
 
-import DAO.UserDAO;
+import SocNET.DAO.UserDAO;
 
-import model.User;
+import SocNET.model.User;
 
 
 import javax.servlet.http.HttpServletRequest;

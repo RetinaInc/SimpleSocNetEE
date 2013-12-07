@@ -1,4 +1,4 @@
-package control.Action;
+package SocNET.Action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

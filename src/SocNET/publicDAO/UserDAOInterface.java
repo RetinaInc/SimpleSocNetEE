@@ -1,7 +1,7 @@
-package DAO;
+package SocNET.publicDAO;
 
-import control.myexception.MyException;
-import model.User;
+import SocNET.myexception.MyException;
+import SocNET.model.User;
 
 import java.sql.SQLException;
 import java.util.List;

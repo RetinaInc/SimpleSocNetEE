@@ -1,4 +1,4 @@
-package control.myexception;
+package SocNET.myexception;
 
 /**
  * Created with IntelliJ IDEA.

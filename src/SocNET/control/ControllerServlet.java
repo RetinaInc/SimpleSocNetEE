@@ -1,7 +1,7 @@
-package control;
+package SocNET.control;
 
-import control.Action.Action;
-import control.Action.ActionFactory;
+import SocNET.Action.Action;
+import SocNET.Action.ActionFactory;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

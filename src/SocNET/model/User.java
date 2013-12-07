@@ -1,4 +1,4 @@
-package model;
+package SocNET.model;
 
 /**
  * Created with IntelliJ IDEA.

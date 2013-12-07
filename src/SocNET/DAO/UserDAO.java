@@ -1,13 +1,10 @@
-package DAO;
+package SocNET.DAO;
 
-import control.myexception.MyException;
-import model.User;
+import SocNET.myexception.MyException;
+import SocNET.model.User;
+import SocNET.publicDAO.UserDAOInterface;
 
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;

@@ -1,6 +1,6 @@
-package DAO;
+package SocNET.DAO;
 
-import control.myexception.MyException;
+import SocNET.myexception.MyException;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
