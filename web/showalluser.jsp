@@ -17,7 +17,7 @@
     <table cellpadding="0" cellspacing="0" border="0" id="table_pc" class="sortable">
         <thead>
         <tr>
-            <th><h3>id_user</h3></th>
+            <th><h3>idUser</h3></th>
             <th><h3>lastname</h3></th>
             <th><h3>firstname</h3></th>
             <th><h3>email</h3></th>
