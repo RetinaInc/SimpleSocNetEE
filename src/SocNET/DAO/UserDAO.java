@@ -21,8 +21,7 @@ public class UserDAO extends AbstractDBConn implements UserDAOInterface {
 
     @Override
     public boolean insert(final User user) throws MyException {
-        //Tested valid sql
-        //INSERT INTO "Users" (id_user,username,email,pswd,user_type,is_blocked) values (0,'reshet','reshet.ukr@gmail.com','tratata','customer',0);
+
         return booleanOperation(new WrapperDBOperation<Boolean>() {
             @Override
             public Boolean doMethod(Connection dataBase) throws SQLException, MyException {

@@ -13,4 +13,5 @@ import SocNET.myexception.MyException;
  */
 public interface GroupDAOInterface {
     public boolean insert(Groups gr) throws MyException;
+    public boolean delete(int userID) throws MyException;
 }
