@@ -1,3 +1,4 @@
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- TOP MENU -->
@@ -20,7 +21,7 @@
 <div class="mainmenu">
     <ul>
      <%--   <li><a class="logo" href="home.jsp">NCLodger</a></li>--%>
-        <li><a href="home.jsp">Home</a></li>
+        <li><a href="index.jsp">Home</a></li>
         <c:if test="${sessionScope.email != null}">
             <li><a href="mygroups.jsp">My Groups</a></li>
 

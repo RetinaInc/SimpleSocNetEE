@@ -13,23 +13,22 @@
 </head>
 <body>
 <form name="showall" method="POST" action="showalluser" onsubmit="">
-<c:if test="${requestScope.allpromocodes != null}">
+<c:if test="${requestScope.allusers != null}">
     <table cellpadding="0" cellspacing="0" border="0" id="table_pc" class="sortable">
         <thead>
         <tr>
-            <th><h3>idUser</h3></th>
-            <th><h3>lastname</h3></th>
-            <th><h3>firstname</h3></th>
-            <th><h3>email</h3></th>
+            <th><h3>idUser </h3></th>
+            <th><h3> username</h3></th>
+            <th><h3> email</h3></th>
             <%--<th><h3>password</h3></th>--%>
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${requestScope.allusers}" var="u">
             <tr>
-                <td><c:out value="${u.id}"/></td>
-                <td><c:out value="${u.lastname}"/></td>
-                <td><c:out value="${u.firstname}"/></td>
+                <td><c:out value="${u.id_user}"/></td>
+                <td><c:out value="${u.username}"/></td>
+
                 <td><c:out value="${u.email}"/></td>
         <%--        <td><c:out value="${u.pass}"/></td>--%>
             </tr>

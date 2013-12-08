@@ -1,5 +1,7 @@
 package SocNET.DAO;
 
+import SocNET.Additional.MessageViewer;
+import SocNET.model.Groups;
 import SocNET.model.Message;
 import SocNET.myexception.MyException;
 import SocNET.publicDAO.MessageDAOInterface;
@@ -7,6 +9,8 @@ import SocNET.publicDAO.MessageDAOInterface;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -49,6 +53,41 @@ public class MessageDAO extends AbstractDBConn implements MessageDAOInterface {
                 java.sql.ResultSet res = prep.executeQuery();
                 res.next();
                 return true;
+            }
+        });
+    }
+
+    @Override
+    public List<MessageViewer> getAllMessagesByGroupID(final int groupID) throws MyException {
+        return booleanOperation(new WrapperDBOperation<List<MessageViewer>>() {
+
+            @Override
+            public List<MessageViewer> doMethod(Connection dataBase) throws MyException, SQLException {
+                PreparedStatement prep = dataBase.prepareStatement(
+                        "SELECT MESSAGE.id_mess,MESSAGE.title,MESSAGE.bodymess,MESSAGE.create_date,MESSAGE.id_user, " +
+                                "       MESSAGE.id_group, USERS.username,USERS.email,USERS.password " +
+                                "  FROM MESSAGE ,USERS " +
+                                "  WHERE MESSAGE.id_group=? AND MESSAGE.id_user=USERS.id_user"
+                );
+                prep.setInt(1,groupID);
+                java.sql.ResultSet res = prep.executeQuery();
+                List<MessageViewer> glist = new ArrayList<MessageViewer>();
+                while(res.next()){
+                    int idMess = res.getInt(1);
+                    String title = res.getString(2);
+                    String bodymess = res.getString(3);
+                    String createDate = res.getString(4);
+                    int idUser = res.getInt(5);
+                    int idGroup = res.getInt(6);
+                    String username = res.getString(7);
+                    String email = res.getString(8);
+                    String pass = res.getString(9);
+                    glist.add(new MessageViewer(idMess,title,bodymess,createDate,idUser,idGroup,username,email,pass));
+
+                }
+
+                return glist;
+
             }
         });
     }

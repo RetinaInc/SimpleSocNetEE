@@ -1,7 +1,10 @@
 package SocNET.publicDAO;
 
+import SocNET.Additional.MessageViewer;
 import SocNET.model.Message;
 import SocNET.myexception.MyException;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,5 +15,7 @@ import SocNET.myexception.MyException;
  */
 public interface MessageDAOInterface {
     public boolean insert(Message mess) throws MyException;
-    public boolean delete(final int userID) throws MyException;
+    public boolean delete(int userID) throws MyException;
+    public List<MessageViewer> getAllMessagesByGroupID(int groupID) throws MyException;
+
 }

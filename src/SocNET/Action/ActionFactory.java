@@ -19,6 +19,8 @@ public class ActionFactory {
         actions.put("/signup", new SignUpAction());
         actions.put("/showalluser", new GetAllUsers());
         actions.put("/signin", new LoginUserAction());
+        actions.put("/getallgroups", new GetAllGroupsAction());
+        actions.put("/getgroupboard", new GetGroupBoardAction());
 
     }
 
