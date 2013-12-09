@@ -16,6 +16,7 @@ import java.util.List;
 public interface GroupDAOInterface {
     public boolean insert(Groups gr) throws MyException;
     public boolean delete(int userID) throws MyException;
+    public Groups getGroupByID(int groupID) throws MyException;
     public List<Groups> getAllGroups() throws  MyException;
     public List<Groups> getMyGroups(int userID) throws MyException; //user is creator
     public List<Groups> getMySubsGroups(int userID) throws MyException;  //user is member

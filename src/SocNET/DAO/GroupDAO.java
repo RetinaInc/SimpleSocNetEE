@@ -153,4 +153,35 @@ public class GroupDAO extends AbstractDBConn implements GroupDAOInterface {
             }
         });
     }
+
+    @Override
+    public Groups getGroupByID(final int groupID) throws MyException {
+        return booleanOperation(new WrapperDBOperation<Groups>() {
+
+            @Override
+            public Groups doMethod(Connection dataBase) throws MyException, SQLException {
+                PreparedStatement prep = dataBase.prepareStatement(
+                        "SELECT * FROM GROUPS WHERE id_group=?"
+                );
+                prep.setInt(1,groupID);
+
+                java.sql.ResultSet res = prep.executeQuery();
+                Groups g = new Groups();
+                if(res.next()){
+                    int id = res.getInt(1);
+                    String name = res.getString(2);
+                    String desc = res.getString(3);
+                    int idOwner = res.getInt(4);
+                    g.setIdGroup(id);
+                    g.setGroupName(name);
+                    g.setDescription(desc);
+                    g.setIdUser(idOwner);
+                }
+
+                return g;
+
+            }
+        });
+    }
+
 }

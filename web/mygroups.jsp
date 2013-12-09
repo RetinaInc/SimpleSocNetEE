@@ -105,7 +105,7 @@
                                    <c:out value="${group.description}"/>
 
                                    </br>
-                                    <a href="getgroupboard">Go to page group</a>
+                                    <a href="getgroupboard?grp=${group.idGroup}">Go to page group</a>
                                 </p>
                             </div>
 

@@ -1,7 +1,6 @@
 package SocNET.DAO;
 
 import SocNET.Additional.MessageViewer;
-import SocNET.model.Groups;
 import SocNET.model.Message;
 import SocNET.myexception.MyException;
 import SocNET.publicDAO.MessageDAOInterface;
@@ -31,7 +30,7 @@ public class MessageDAO extends AbstractDBConn implements MessageDAOInterface {
                 );
                 prep.setString(1,mess.getTitle());
                 prep.setString(2,mess.getBodymess());
-                prep.setString(3,mess.getCreate_date());
+                prep.setString(3,mess.getCreateDate());
                 prep.setInt(4,mess.getIdUser());
                 prep.setInt(5,mess.getIdGroup());
 

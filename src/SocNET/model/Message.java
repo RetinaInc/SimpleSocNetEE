@@ -11,7 +11,7 @@ public class Message {
     private int idMess;
     private String title;
     private String bodymess;
-    private String create_date;
+    private String createDate;
     private int idUser;
     private int idGroup;
 
@@ -19,11 +19,20 @@ public class Message {
 
     }
 
-    public Message(int idMess,String title,String bodymess,String create_date,int idUser, int idGroup){
+    public Message(String title, String bodymess,String createDate, int idUser, int idGroup){
+        this.title = title;
+        this.bodymess = bodymess;
+        this.createDate = createDate;
+        this.idUser = idUser;
+        this.idGroup = idGroup;
+
+    }
+
+    public Message(int idMess,String title,String bodymess,String createDate,int idUser, int idGroup){
         this.idMess = idMess;
         this.title = title;
         this.bodymess = bodymess;
-        this.create_date = create_date;
+        this.createDate = createDate;
         this.idUser = idUser;
         this.idGroup = idGroup;
     }
@@ -52,12 +61,12 @@ public class Message {
         this.bodymess = bodymess;
     }
 
-    public String getCreate_date() {
-        return create_date;
+    public String getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(String create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 
     public int getIdUser() {

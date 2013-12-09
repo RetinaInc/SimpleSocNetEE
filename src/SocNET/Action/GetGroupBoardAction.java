@@ -21,13 +21,14 @@ public class GetGroupBoardAction implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Groups g = new Groups();
-        g =(Groups) request.getAttribute("group");
-        String str = request.getParameter("groupName");
+        String gID = request.getParameter("grp");
+        int groupID = Integer.parseInt(gID);
         MessageDAO mdao = new MessageDAO();
         MessageViewer mv = new MessageViewer();
 
         List<MessageViewer> mvlist = new ArrayList<>();
-        mvlist = mdao.getAllMessagesByGroupID(g.getIdGroup());
+        request.getSession().setAttribute("grouppage",g);
+        mvlist = mdao.getAllMessagesByGroupID(groupID);
         request.setAttribute("messinfo",mvlist);
 
         return "group";
