@@ -21,6 +21,7 @@ public class ActionFactory {
         actions.put("/signin", new LoginUserAction());
         actions.put("/getallgroups", new GetAllGroupsAction());
         actions.put("/getgroupboard", new GetGroupBoardAction());
+        actions.put("/addnewmessage", new AddNewMessageAction());
 
     }
 

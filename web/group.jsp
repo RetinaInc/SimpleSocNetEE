@@ -11,9 +11,17 @@
 <head>
     <title>SocNET | home</title>
     <link rel="stylesheet" type="text/css" href="resources/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="resources/css/additional.css" />
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+    <script type="text/javascript" language="javascript" id="hcb">
+     /*<!--*/ if(!window.hcb_user){hcb_user={  };}
+     (function(){s=document.createElement("script");
+         s.setAttribute("type","text/javascript");
+         s.setAttribute("src", "http://www.htmlcommentbox.com/jread?page="+escape((window.hcb_user && hcb_user.PAGE)||(""+window.location)).replace("+","%2B")+"&opts=470&num=10");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/
+    </script>
+
 </head>
 <body>
 
@@ -21,6 +29,55 @@
 
     <jsp:include page="header.jsp"/>
 
+    <div> <%--start add new comment--%>
+        <!-- begin htmlcommentbox.com -->
+        <h1>Leave you message!</h1>
+        <form action="addnewmessage" method="post">
+            <table>
+                <tr>
+                    <td>Title</td>
+                    <td>
+                        <input type="text" name="title" value="" maxlength="100" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Comments:</td>
+                    <td>
+                        &lt;textarea rows="10" cols="50" name="comments"&gt;&lt;/textarea&gt;
+                    </td>
+                </tr>
+                <tr><td>&nbsp;</td>
+                    <td>
+                        <input type="submit" value="Submit" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <!-- end htmlcommentbox.com -->
+
+    </div>    <%--end add new comment--%>
+
+
+        <!-- DC Comment Boxes Start -->
+       <%-- url(resources/img/up-arrow.png)--%>
+
+        <div> <%--all comment begin--%>
+            <c:if test="${requestScope.messinfo!= null}">
+                <c:forEach items="${requestScope.messinfo}" var="messinfo">
+                    <div class="tsc_clean_comment">
+                        <div class="avatar_box"> <img src="resources/img/avatar.jpg" alt="Avatar" class="avatar" />
+                            <p class="username"><c:out value="${messinfo.username}"/></p>
+                        </div>
+                        <div class="comment_box fr">
+                            <%--<p class="comment_paragraph" contenteditable="true">This field is completely editable. To disable this feature remove the "contenteditable=true" tag from this code.</p>--%>
+                                <p class="comment_paragraph"><c:out value="${messinfo.bodymess}"/></p>
+                            <a href="#" class="reply">Reply</a> <span class="date"><c:out value="${messinfo.create_date}"/></span> </div>
+                        <div class="tsc_clear"></div>
+                    </div>   <%--end tsc_clean_comment--%>
+                    <!-- DC Comment Boxes End -->
+                </c:forEach>
+            </c:if>
+        </div>  <%--all comment end--%>
 
 
    <%-- <div> &lt;%&ndash;form show message&ndash;%&gt;
