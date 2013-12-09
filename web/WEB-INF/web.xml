@@ -44,4 +44,10 @@
         <url-pattern>/getgroupboard</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/addnewmessage</url-pattern>
+    </servlet-mapping>
+
+
 </web-app>
