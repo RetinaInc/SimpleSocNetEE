@@ -1,6 +1,7 @@
 package SocNET.Action;
 
 import SocNET.Additional.MessageViewer;
+import SocNET.DAO.GroupDAO;
 import SocNET.DAO.MessageDAO;
 import SocNET.model.Groups;
 
@@ -20,9 +21,14 @@ public class GetGroupBoardAction implements Action {
 
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
         Groups g = new Groups();
         String gID = request.getParameter("grp");
         int groupID = Integer.parseInt(gID);
+        //get group by ID
+        GroupDAO gdao = new GroupDAO();
+        g = gdao.getGroupByID(groupID);
+
         MessageDAO mdao = new MessageDAO();
         MessageViewer mv = new MessageViewer();
 

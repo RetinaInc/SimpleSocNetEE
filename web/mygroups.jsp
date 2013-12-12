@@ -54,7 +54,9 @@
     }
 
     $(function() {
-        $( "#accordion" ).accordion();
+        $( "#accordion" ).accordion({
+            heightStyle: "content"
+        });
     });
 
     function OnGetAllGroups(){
@@ -78,7 +80,7 @@
 
         <li><a href="#tabs-1">My groups</a></li>
         <li><a href="#tabs-2">Subscribed groups</a></li>
-        <li><a href="#tabs-3">All groups</a></li>
+        <li><a href="#tabs-3"> <a href="tab3.jsp">All groups</a></a></li>
 
     </ul>
 

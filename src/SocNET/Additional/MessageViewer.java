@@ -11,7 +11,7 @@ public class MessageViewer {
     private int id_mess;
     private String title;
     private String bodymess;
-    private String create_date;
+    private String createDate;
     private int id_group;
     private int id_user;
     private String username;
@@ -21,12 +21,12 @@ public class MessageViewer {
     public MessageViewer(){
 
     }
-    public MessageViewer(int id_mess,String title,String bodymess,String create_date,
+    public MessageViewer(int id_mess,String title,String bodymess,String createDate,
                          int id_group,int id_user,String username,String email,String password){
         this.id_mess = id_mess;
         this.title = title;
         this.bodymess = bodymess;
-        this.create_date = create_date;
+        this.createDate = createDate;
         this.id_group = id_group;
         this.id_user = id_user;
         this.username = username;
@@ -58,12 +58,12 @@ public class MessageViewer {
         this.bodymess = bodymess;
     }
 
-    public String getCreate_date() {
-        return create_date;
+    public String getCreateDate() {
+        return createDate;
     }
 
-    public void setCreate_date(String create_date) {
-        this.create_date = create_date;
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
     }
 
     public int getId_group() {

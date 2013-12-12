@@ -4,7 +4,7 @@ CREATE TABlE MESSAGE
   idMess int not NULL AUTO_INCREMENT ,
   title varchar (255) NOT NULL,
   bodymess varchar (255) NOT NULL,
-  create_date varchar(255) NOT NULL,
+  createDate varchar(255) NOT NULL,
   idUser int not NULL,
   idGroup int not NULL,
   PRIMARY KEY (idMess),

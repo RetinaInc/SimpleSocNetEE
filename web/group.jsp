@@ -61,23 +61,23 @@
         <!-- DC Comment Boxes Start -->
        <%-- url(resources/img/up-arrow.png)--%>
 
-     <%--   <div> &lt;%&ndash;all comment begin&ndash;%&gt;
+        <div> <%--all comment begin--%>
             <c:if test="${requestScope.messinfo!= null}">
-                <c:forEach items="${requestScope.messinfo}" var="messinfo">
+                <c:forEach items="${requestScope.messinfo}" var="mesinfo">
                     <div class="tsc_clean_comment">
                         <div class="avatar_box"> <img src="resources/img/avatar.jpg" alt="Avatar" class="avatar" />
-                            <p class="username"><c:out value="${messinfo.username}"/></p>
+                            <p class="username"><c:out value="${mesinfo.username}"/></p>
                         </div>
-                        <div class="comment_box fr">
-                            &lt;%&ndash;<p class="comment_paragraph" contenteditable="true">This field is completely editable. To disable this feature remove the "contenteditable=true" tag from this code.</p>&ndash;%&gt;
-                                <p class="comment_paragraph"><c:out value="${messinfo.bodymess}"/></p>
-                            <a href="#" class="reply">Reply</a> <span class="date"><c:out value="${messinfo.createDate}"/></span> </div>
+                        <div class="comment_box fr" style="float: right; width: 100px;">
+                            <%--<p class="comment_paragraph" contenteditable="true">This field is completely editable. To disable this feature remove the "contenteditable=true" tag from this code.</p>--%>
+                                <p class="comment_paragraph"><c:out value="${mesinfo.bodymess}"/></p>
+                           <%-- <a href="#" class="reply">Reply</a>--%> <span class="date"><c:out value="${mesinfo.createDate}"/></span> </div>
                         <div class="tsc_clear"></div>
-                    </div>   &lt;%&ndash;end tsc_clean_comment&ndash;%&gt;
+                    </div>   <%--end tsc_clean_comment--%>
                     <!-- DC Comment Boxes End -->
                 </c:forEach>
             </c:if>
-        </div>  all comment end--%>
+        </div>  <%--all comment end--%>
 
 
    <%-- <div> &lt;%&ndash;form show message&ndash;%&gt;
