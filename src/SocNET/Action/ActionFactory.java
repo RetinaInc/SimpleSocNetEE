@@ -22,6 +22,10 @@ public class ActionFactory {
         actions.put("/getallgroups", new GetAllGroupsAction());
         actions.put("/getgroupboard", new GetGroupBoardAction());
         actions.put("/addnewmessage", new AddNewMessageAction());
+        actions.put("/getallsubcribedgroups", new GetAllSubscribedGroupsAction());
+        actions.put("/getallmygroups", new GetOwnGroupsAction());
+
+
 
     }
 

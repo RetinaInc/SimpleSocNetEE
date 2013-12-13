@@ -21,6 +21,7 @@ public interface GroupDAOInterface {
     public List<Groups> getMyGroups(int userID) throws MyException; //user is creator
     public List<Groups> getMySubsGroups(int userID) throws MyException;  //user is member
 
+
     //for group_participant
 
     public boolean addParticipant(int userID,int groupID) throws MyException;

@@ -30,7 +30,7 @@ public class User {
         this.password = password;
     }
 
-    public int getId_user() {
+    public int getIdUser() {
         return id_user;
     }
 

@@ -18,6 +18,10 @@
     .sortable .desc h3 { background: url(resources/img/desc.gif) 7px center no-repeat; cursor: pointer; padding-left: 18px } /* selected header */
     .sortable .asc h3 { background: url(resources/img/asc.gif) 7px center no-repeat; cursor: pointer; padding-left: 18px } /* dsc arrpw */
 </style>--%>
+    <script>
+        document.getElementById('allgr').submit();
+
+    </script>
 <script>
 
     $(function() {
@@ -33,10 +37,10 @@
     });
 
 
+/*    document.allgr.action="getallgroups";
+    document.allgr.submit();*/
 
-</script>
 
-<script type="text/javascript">
     function OnSliderChanged (slider) {
         var sliderValue = document.getElementById (slider.id + "Value");
         sliderValue.innerHTML = slider.value+"%";
@@ -64,6 +68,21 @@
         document.allgr.submit();
         return true;
     }
+
+/*    $( "#tabs-3" ).load( document.URL +  '#tabs-3', function() {
+        alert( "Load was performed." );
+    });*/
+
+    $(document).ready(function() { /// Wait till page is loaded
+        $('#tabs-3').click(function(){
+            $('#tabs-3').load('getallgroups #tabs-3', function() {
+/// can add another function here
+            });
+        });
+    }); //// End of Wait till page is loaded
+
+  /*  $("#allgr").ajaxSubmit({url: 'getallgroups', type: 'post'})*/
+
 </script>
 </head>
 
@@ -80,8 +99,10 @@
 
         <li><a href="#tabs-1">My groups</a></li>
         <li><a href="#tabs-2">Subscribed groups</a></li>
-        <li><a href="#tabs-3"> <a href="tab3.jsp">All groups</a></a></li>
-
+        <%--<li><a href="#tabs-3"><a href="getallgroups"> All groups</a></a></li>--%>
+       <%-- <li><a href="#tabs-3"><a onclick="OnGetAllGroups();"> All groups</a></a></li>--%>
+        <li><a href="#tabs-3"> All groups</a></li>
+        <%--<a href="smgetallusers"--%>
     </ul>
 
             <div id="tabs-1"><!-- 'My groups' tab -->
@@ -95,7 +116,7 @@
 
             <div id="tabs-3"><!-- 'All groups' tab -->
 
-                <form name="allgr" method="POST" onsubmit="">
+                <form id="allgr" name="allgr" method="POST" onsubmit="">
                     <input type = "submit" name = "getallgroups" value="Get all groups" onclick="OnGetAllGroups();">
                     <c:if test="${requestScope.allgroups!= null}">
                     <div id="accordion"> <%--begin accordion--%>

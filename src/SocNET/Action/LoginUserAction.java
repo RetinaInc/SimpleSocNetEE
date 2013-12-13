@@ -29,7 +29,7 @@ public class LoginUserAction implements Action {
         User user;
         user = udao.getUserObj(email,pass);
         if (user != null ){
-            request.getSession().setAttribute("id_user",user.getId_user());
+            request.getSession().setAttribute("id_user",user.getIdUser());
             request.getSession().setAttribute("email",user.getEmail());
             request.getSession().setAttribute("username",user.getUsername());
             request.getSession().setAttribute("userfull",user);

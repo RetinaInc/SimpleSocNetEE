@@ -49,5 +49,17 @@
         <url-pattern>/addnewmessage</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/getallsubcribedgroups</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/getallmygroups</url-pattern>
+    </servlet-mapping>
+
+
+
 
 </web-app>
