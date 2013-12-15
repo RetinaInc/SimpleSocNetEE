@@ -1,5 +1,7 @@
 package SocNET.Action;
 
+import SocNET.DAO.GroupDAO;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -13,6 +15,12 @@ import javax.servlet.http.HttpServletResponse;
 public class DelParticipantFromGroupsActions implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
+        GroupDAO gdao = new GroupDAO();
+        String gID = request.getParameter("grp");
+        int groupID = Integer.parseInt(gID);
+        int userID =(int) request.getSession().getAttribute("id_user");
+        gdao.delParicipant(userID,groupID);
         return "mygroups";
     }
 }

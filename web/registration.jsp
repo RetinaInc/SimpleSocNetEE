@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
@@ -62,8 +63,8 @@
 <body>
 
 <div id="wrapper">
-
-    <div id="header">
+    <jsp:include page="header.jsp"/>
+<%--    <div id="header">
         <div class="nav">
             <ul>
                 <li><a href="home.jsp"><h1>SocNET</h1></a></li>
@@ -72,7 +73,7 @@
                 <li><a href="#">Contacts</a></li>
             </ul>
         </div>
-    </div><!-- #header -->
+    </div><!-- #header -->--%>
 
     <div id="content">
         <div class="window" >
@@ -83,6 +84,9 @@
 
                 <p>Email:<input type="text" name="email" maxlength="50"/></p>
                 <span id="span_email">Invalid email!</span>
+                <c:if test="${requestScope.isExist==true}">
+                    <p style="color: #bc0f0f;">This email is already registered.</p>
+                </c:if>
 
                 <p>Password:<input type="password" name="password" maxlength="20"></p>
                 <span id="span_pswd1">Password must contain only latin letters and numbers (6 to 20 symbols)!</span>

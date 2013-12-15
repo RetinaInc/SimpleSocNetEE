@@ -20,13 +20,13 @@ import java.util.List;
 public class UserDAO extends AbstractDBConn implements UserDAOInterface {
 
     @Override
-    public boolean insert(final User user) throws MyException {
+    public Boolean insert(final User user) throws MyException {
 
         return booleanOperation(new WrapperDBOperation<Boolean>() {
             @Override
             public Boolean doMethod(Connection dataBase) throws SQLException, MyException {
                 PreparedStatement prep = dataBase.prepareStatement(
-                        "INSERT INTO USERS (login,email,password) values (?,?,?)"
+                        "INSERT INTO USERS (username,email,password) values (?,?,?)"
                 );
                 //NamedParameterStatement p = new NamedParameterStatement(con, query);
                 // prep.setInt(1,11);
@@ -75,7 +75,7 @@ public class UserDAO extends AbstractDBConn implements UserDAOInterface {
 
 
     @Override
-    public boolean delete(User user) throws MyException {
+    public Boolean delete(User user) throws MyException {
         return false;  //To change body of implemented methods use File | Settings | File Templates.
     }
 
@@ -108,7 +108,7 @@ public class UserDAO extends AbstractDBConn implements UserDAOInterface {
         });
     }
 
-    public boolean getUser(final String email, final String password) throws MyException {
+    public Boolean getUser(final String email, final String password) throws MyException {
         return booleanOperation(new WrapperDBOperation<Boolean>() {
 
             @Override
@@ -182,6 +182,33 @@ public class UserDAO extends AbstractDBConn implements UserDAOInterface {
 
 
                 return username;
+
+            }
+        });
+    }
+
+    //if exist true
+    @Override
+    public Boolean isExistEmail(final String email) throws MyException {
+        return booleanOperation(new WrapperDBOperation<Boolean>() {
+
+            @Override
+            public Boolean doMethod(Connection dataBase) throws MyException, SQLException {
+                PreparedStatement prep = dataBase.prepareStatement(
+                        "SELECT COUNT(*) FROM USERS WHERE email=?"
+                );
+                prep.setString(1, email);
+
+
+                java.sql.ResultSet res = prep.executeQuery();
+                res.next();
+                int exist = res.getInt(1);
+                boolean answer = false;
+                if (exist != 0) {
+                    answer = true;
+                }
+
+                return answer;
 
             }
         });

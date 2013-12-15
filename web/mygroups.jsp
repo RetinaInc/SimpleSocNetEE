@@ -110,7 +110,7 @@
 
             <ul>
 
-                <li><a href="#tabs-1">All groups</a></li>
+                <li><a href="#tabs-1"><a href="getallgroups">All groups</a></a></li>
                 <li><a href="#tabs-2">Subscribed groups</a></li>
                 <%--<li><a href="#tabs-3"><a href="getallgroups"> All groups</a></a></li>--%>
                 <%-- <li><a href="#tabs-3"><a onclick="OnGetAllGroups();"> All groups</a></a></li>--%>
@@ -127,23 +127,20 @@
                                 <h3><c:out value="${group.groupName}"/></h3>
                                 <div>
                                     <p>
-                                        <br>
-                                        <h2>Creator: </h2><c:out value="${group.usernameCreator}"/>
-
-                                        </br>
+                                        <h3>Creator: <c:out value="${group.usernameCreator}"/>  </h3>
                                         <br>
                                         <c:out value="${group.description}"/>
                                         </br>
                                     <c:if test="${group.loginUserStatus== 0}">
-                                        <a href="getgroupboard?grp=${group.idGroup}">Join</a>
+                                        <a style="float: right"  href="addparticipant?grp=${group.idGroup}">Join</a>
 
                                     </c:if>
                                     <c:if test="${group.loginUserStatus== 1}">
-                                        <a href="getgroupboard?grp=${group.idGroup}">Resign</a>
+                                        <a style="float: right" href="delparticipant?grp=${group.idGroup}">Resign</a>
 
                                     </c:if>
                                     <c:if test="${group.loginUserStatus!= 0}">
-                                        <a href="getgroupboard?grp=${group.idGroup}">Go to page group</a>
+                                        <a style="float: left" href="getgroupboard?grp=${group.idGroup}">Go to page group</a>
 
                                     </c:if>
                                        <%-- <a href="getgroupboard?grp=${group.idGroup}">Go to page group</a>--%>

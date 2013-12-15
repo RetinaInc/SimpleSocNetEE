@@ -45,7 +45,7 @@ public class GetGroupInfoAction implements Action {
             }
 
             ginfolist.add(new InfoGroupUser(g,creatorName,status));
-
+           status =0;
 
         }
         request.setAttribute("allinfogroups",ginfolist);

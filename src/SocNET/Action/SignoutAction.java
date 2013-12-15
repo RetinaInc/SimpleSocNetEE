@@ -15,9 +15,9 @@ public class SignoutAction implements Action {
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         // If User is unauthorized then ge can't sign out
         if(request.getSession().getAttribute("email") == null){
-            return "home";
+            return "index";
         }
         request.getSession().invalidate();
-        return "home";
+        return "index";
     }
 }

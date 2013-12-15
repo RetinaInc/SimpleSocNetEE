@@ -16,6 +16,10 @@ public class AddParticipantToGroupsAction implements Action {
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
         GroupDAO gdao = new GroupDAO();
+        String gID = request.getParameter("grp");
+        int groupID = Integer.parseInt(gID);
+        int userID =(int) request.getSession().getAttribute("id_user");
+        gdao.addParticipant(userID,groupID);
 
         return "mygroups";
 

@@ -62,7 +62,7 @@ public class GroupDAO extends AbstractDBConn implements GroupDAOInterface {
             @Override
             public Boolean doMethod(Connection dataBase) throws SQLException, MyException {
                 PreparedStatement prep = dataBase.prepareStatement(
-                        "INSERT INTO GROUPS_PARTICIPANT (id_user, id_group) values(?,?)"
+                        "INSERT INTO GROUP_PARTICIPANT (id_user, id_group) values(?,?)"
                 );
                 prep.setInt(1,userID);
                 prep.setInt(2,groupID);
@@ -190,11 +190,14 @@ public class GroupDAO extends AbstractDBConn implements GroupDAOInterface {
             @Override
             public Boolean doMethod(Connection dataBase) throws SQLException, MyException {
                 PreparedStatement prep = dataBase.prepareStatement(
-                        "DELETE FROM GROUP_PARTICIPANT WHERE id_user=? AND id_group=?;"
+                        "DELETE FROM GROUP_PARTICIPANT WHERE id_user=? AND id_group=?"
                 );
                 prep.setInt(1,userID);
                 prep.setInt(2,groupID);
-                prep.executeQuery();
+               /* prep.executeQuery();*/
+                prep.executeUpdate();
+/*                java.sql.ResultSet res = prep.executeQuery();
+                res.next();*/
                 return true;
             }
         });
@@ -214,6 +217,7 @@ public class GroupDAO extends AbstractDBConn implements GroupDAOInterface {
                 //String str = prep.;
 
                 java.sql.ResultSet res = prep.executeQuery();
+                res.next();
                 int status = res.getInt(1);
                 boolean check=false;
                 if(status!=0){

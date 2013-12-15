@@ -68,9 +68,9 @@
                         <div class="avatar_box"> <img src="resources/img/avatar.jpg" alt="Avatar" class="avatar" />
                             <p class="username"><c:out value="${mesinfo.username}"/></p>
                         </div>
-                        <div class="comment_box fr" style="float: right; width: 100px;">
+                        <div class="comment_box fr" style="float: right;/* width: 100px;*/">
                             <%--<p class="comment_paragraph" contenteditable="true">This field is completely editable. To disable this feature remove the "contenteditable=true" tag from this code.</p>--%>
-                                <p class="comment_paragraph"><c:out value="${mesinfo.bodymess}"/></p>
+                                <p style="width: 300px;"  class="comment_paragraph"><c:out value="${mesinfo.bodymess}"/></p>
                            <%-- <a href="#" class="reply">Reply</a>--%> <span class="date"><c:out value="${mesinfo.createDate}"/></span> </div>
                         <div class="tsc_clear"></div>
                     </div>   <%--end tsc_clean_comment--%>

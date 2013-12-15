@@ -19,11 +19,16 @@ public class SignUpAction implements Action {
 
 
         UserDAO uDAO = new UserDAO();
+
+        if(uDAO.isExistEmail(request.getParameter("email"))){
+            request.setAttribute("isExist",true);
+            return "registration";
+        }
         boolean bool;
         User user;
         try {
             //String lastname, String firstname, String email, String password
-            user = new User(request.getParameter("login"),
+            user = new User(request.getParameter("username"),
                             request.getParameter("email"),request.getParameter("password"));
             bool = uDAO.insert(user);
 
