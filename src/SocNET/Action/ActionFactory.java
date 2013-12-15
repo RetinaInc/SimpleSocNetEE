@@ -28,6 +28,8 @@ public class ActionFactory {
         actions.put("/addparticipant", new AddParticipantToGroupsAction());
         actions.put("/delparticipant", new DelParticipantFromGroupsActions());
         actions.put("/getallinfogroups", new GetGroupInfoAction());
+        actions.put("/signout", new SignoutAction());
+
 
 
 

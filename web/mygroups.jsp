@@ -133,9 +133,20 @@
                                         </br>
                                         <br>
                                         <c:out value="${group.description}"/>
-
                                         </br>
+                                    <c:if test="${group.loginUserStatus== 0}">
+                                        <a href="getgroupboard?grp=${group.idGroup}">Join</a>
+
+                                    </c:if>
+                                    <c:if test="${group.loginUserStatus== 1}">
+                                        <a href="getgroupboard?grp=${group.idGroup}">Resign</a>
+
+                                    </c:if>
+                                    <c:if test="${group.loginUserStatus!= 0}">
                                         <a href="getgroupboard?grp=${group.idGroup}">Go to page group</a>
+
+                                    </c:if>
+                                       <%-- <a href="getgroupboard?grp=${group.idGroup}">Go to page group</a>--%>
                                     </p>
                                 </div>
 

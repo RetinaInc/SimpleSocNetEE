@@ -79,6 +79,10 @@
         <url-pattern>/getallinfogroups</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/signout</url-pattern>
+    </servlet-mapping>
 
 
 
