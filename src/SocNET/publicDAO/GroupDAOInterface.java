@@ -20,11 +20,12 @@ public interface GroupDAOInterface {
     public List<Groups> getAllGroups() throws  MyException;
     public List<Groups> getMyGroups(int userID) throws MyException; //user is creator
     public List<Groups> getMySubsGroups(int userID) throws MyException;  //user is member
-
+    public boolean isUserMemberOfGroup(int userID,int groupID) throws MyException;
 
     //for group_participant
 
     public boolean addParticipant(int userID,int groupID) throws MyException;
+    public boolean delParicipant(int userID, int groupID) throws MyException;
 
 
 

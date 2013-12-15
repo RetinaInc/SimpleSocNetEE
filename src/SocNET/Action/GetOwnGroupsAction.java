@@ -25,9 +25,9 @@ public class GetOwnGroupsAction implements Action {
         GroupDAO gdao = new GroupDAO();
 
         List<Groups> glist;
-        int userID =(int) request.getSession().getAttribute("user_id");
+        int userID =(Integer) request.getSession().getAttribute("id_user");
         glist = gdao.getMyGroups(userID);
-        request.setAttribute("allgroups",glist);
+        request.setAttribute("allmygroups",glist);
 
 
         return "mygroups";

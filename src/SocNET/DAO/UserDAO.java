@@ -165,4 +165,25 @@ public class UserDAO extends AbstractDBConn implements UserDAOInterface {
 
     }
 
+    @Override
+    public String getUsernameByID(final int userID) throws MyException {
+        return booleanOperation(new WrapperDBOperation<String>() {
+
+            @Override
+            public String doMethod(Connection dataBase) throws MyException, SQLException {
+                PreparedStatement prep = dataBase.prepareStatement(
+                        "SELECT username FROM USERS WHERE id_user=?"
+                );
+                prep.setInt(1,userID);
+
+                java.sql.ResultSet res = prep.executeQuery();
+                res.next();
+                String username = res.getString(1);
+
+
+                return username;
+
+            }
+        });
+    }
 }

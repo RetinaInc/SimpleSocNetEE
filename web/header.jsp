@@ -23,7 +23,7 @@
      <%--   <li><a class="logo" href="home.jsp">NCLodger</a></li>--%>
         <li><a href="index.jsp">Home</a></li>
         <c:if test="${sessionScope.email != null}">
-            <li><a href="mygroups.jsp">My Groups</a></li>
+            <li><a href="mygroups">My Groups</a></li>
 
         </c:if>
 <%--        <li><a href="aboutus.jsp">About Us</a></li>

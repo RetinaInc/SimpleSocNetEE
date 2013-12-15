@@ -59,6 +59,26 @@
         <url-pattern>/getallmygroups</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/delparticipant</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/addparticipant</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/mygroups</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>ControllerServlet</servlet-name>
+        <url-pattern>/getallinfogroups</url-pattern>
+    </servlet-mapping>
+
 
 
 

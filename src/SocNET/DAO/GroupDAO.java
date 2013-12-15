@@ -42,7 +42,7 @@ public class GroupDAO extends AbstractDBConn implements GroupDAOInterface {
 
     @Override
     public boolean delete(final int userID) throws MyException {
-            return booleanOperation(new AbstractDBConn.WrapperDBOperation<Boolean>() {
+            return booleanOperation(new WrapperDBOperation<Boolean>() {
                 @Override
                 public Boolean doMethod(Connection dataBase) throws SQLException, MyException {
                     PreparedStatement prep = dataBase.prepareStatement(
@@ -58,7 +58,7 @@ public class GroupDAO extends AbstractDBConn implements GroupDAOInterface {
 
     @Override
     public boolean addParticipant(final int userID,final  int groupID) throws MyException {
-        return booleanOperation(new AbstractDBConn.WrapperDBOperation<Boolean>() {
+        return booleanOperation(new WrapperDBOperation<Boolean>() {
             @Override
             public Boolean doMethod(Connection dataBase) throws SQLException, MyException {
                 PreparedStatement prep = dataBase.prepareStatement(
@@ -184,4 +184,43 @@ public class GroupDAO extends AbstractDBConn implements GroupDAOInterface {
         });
     }
 
+    @Override
+    public boolean delParicipant(final int userID,final int groupID) throws MyException {
+        return booleanOperation(new AbstractDBConn.WrapperDBOperation<Boolean>() {
+            @Override
+            public Boolean doMethod(Connection dataBase) throws SQLException, MyException {
+                PreparedStatement prep = dataBase.prepareStatement(
+                        "DELETE FROM GROUP_PARTICIPANT WHERE id_user=? AND id_group=?;"
+                );
+                prep.setInt(1,userID);
+                prep.setInt(2,groupID);
+                prep.executeQuery();
+                return true;
+            }
+        });
+    }
+
+    //true if member;
+    @Override
+    public boolean isUserMemberOfGroup(final int userID,final int groupID) throws MyException {
+        return booleanOperation(new WrapperDBOperation<Boolean>() {
+            @Override
+            public Boolean doMethod(Connection dataBase) throws SQLException, MyException {
+                PreparedStatement prep = dataBase.prepareStatement(
+                        "SELECT COUNT(*) FROM GROUP_PARTICIPANT WHERE id_user=? AND id_group=?"
+                );
+                prep.setInt(1,userID);
+                prep.setInt(2,groupID);
+                //String str = prep.;
+
+                java.sql.ResultSet res = prep.executeQuery();
+                int status = res.getInt(1);
+                boolean check=false;
+                if(status!=0){
+                    check=true;
+                }
+                return check;
+            }
+        });
+    }
 }
